@@ -1,0 +1,21 @@
+*,
+*::after,
+*::before {
+  // outline: 1px solid red;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+}
+.gap10 {
+  gap: 10px;
+}

@@ -1,0 +1,19 @@
+.cart-component {
+  .cart-icon {
+    display: flex;
+    position: relative;
+    .cart-count {
+      position: absolute;
+      font-size: 6px;
+      background-color: #00AD46;
+      color: #ffffff;
+      border-radius: 100%;
+      display: grid;
+      place-items: center;
+      min-width: 10px;
+      height: 10px;
+      top: 0;
+      right: 0;
+    }
+  }
+}
