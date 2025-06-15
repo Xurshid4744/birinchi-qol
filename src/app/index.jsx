@@ -1,30 +1,35 @@
-import { RouterProvider } from "react-router-dom";
+// src/App.tsx
 import { useTelegramApp } from "@/hooks";
-import router from "@/routes";
+import React from "react";
 
-function App() {
-  const user = useTelegramApp();
-  // if (!isTelegram) return <h1>Not Found</h1>;
+const App = () => {
+  const { user, isTelegram } = useTelegramApp();
+
+  if (!isTelegram) {
+    return <p>❌ Iltimos, Telegram WebApp orqali kiring.</p>;
+  }
+
+  if (!user) {
+    return <p>⏳ Telegram foydalanuvchi ma'lumotlari olinmoqda...</p>;
+  }
 
   return (
-    <>
-      APP
-      {user ? (
-        <div>
-          <h1>id:{user?.id}</h1>
-          <h1>is_bot:{user?.is_bot}</h1>
-          <h1>first_name:{user?.first_name}</h1>
-          <h1>last_name:{user?.last_name}</h1>
-          <h1>username:{user?.username}</h1>
-          <h1>language_code:{user?.language_code}</h1>
-          <h1>allows_write_to_pm:{user?.allows_write_to_pm}</h1>
-          <h1>photo_url:{user?.photo_url}</h1>
-        </div>
-      ) : (
-        <h1>USER NOT !</h1>
-      )}
-    </>
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <h1>👤 Telegram Foydalanuvchisi</h1>
+      <ul>
+        <li>ID: {user.id}</li>
+        <li>Ism: {user.first_name}</li>
+        {user.last_name && <li>Familiya: {user.last_name}</li>}
+        {user.username && <li>Username: @{user.username}</li>}
+        <li>Tili: {user.language_code}</li>
+        {user.photo_url && (
+          <li>
+            Avatar: <img src={user.photo_url} width="80" height="80" alt="avatar" />
+          </li>
+        )}
+      </ul>
+    </div>
   );
-}
+};
 
 export default App;

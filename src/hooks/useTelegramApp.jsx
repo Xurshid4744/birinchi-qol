@@ -3,22 +3,27 @@ import WebApp from "@twa-dev/sdk";
 
 const useTelegramApp = () => {
   const [user, setUser] = useState(null);
+  const [isTelegram, setIsTelegram] = useState(false);
 
   useEffect(() => {
-    if (!window.Telegram?.WebApp) return;
+    if (!window.Telegram?.WebApp) {
+      console.warn("Telegram WebApp not found");
+      return;
+    }
 
+    setIsTelegram(true);
     WebApp.ready();
 
-    const telegramUser = WebApp.initDataUnsafe?.user;
-    if (telegramUser) {
-      setUser(telegramUser);
-      console.log("Telegram user data:", telegramUser);
+    const userData = WebApp.initDataUnsafe?.user;
+
+    if (userData) {
+      setUser(userData);
     } else {
-      console.warn("Foydalanuvchi ma'lumotlari topilmadi. WebApp initData bo'sh.");
+      console.warn("No user data from Telegram");
     }
   }, []);
 
-  return user;
+  return { user, isTelegram };
 };
 
 export default useTelegramApp;
