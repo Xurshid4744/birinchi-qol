@@ -4,8 +4,9 @@ import router from "@/routes";
 
 function App() {
   const isTelegram = useTelegramApp();
-  if (!isTelegram) return <h1>Not Found</h1>;
-  return <RouterProvider router={router} />;
+  // if (!isTelegram) return <h1>Not Found</h1>;
+
+  return isTelegram;
 }
 
 export default App;
