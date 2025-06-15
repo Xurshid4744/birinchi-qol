@@ -3,14 +3,10 @@ import { useTelegramApp } from "@/hooks";
 import React from "react";
 
 const App = () => {
-  const { user, isTelegram } = useTelegramApp();
-
-  if (!isTelegram) {
-    return <p>❌ Iltimos, Telegram WebApp orqali kiring.</p>;
-  }
+  const { user } = useTelegramApp();
 
   if (!user) {
-    return <p>⏳ Telegram foydalanuvchi ma'lumotlari olinmoqda...</p>;
+    return <p>❌ Iltimos, Telegram WebApp orqali kiring.</p>;
   }
 
   return (
