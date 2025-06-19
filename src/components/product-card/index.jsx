@@ -6,10 +6,11 @@ import FooterSection from "./footer-section";
 import "./index.scss";
 
 const ProductCard = ({ product }) => {
-  const { count, total, type, dic, inc, toggleType, price } = useProductLogic(product);
+  const { count, total, type, dic, inc, toggleType, handleTag, tag, price } = useProductLogic(product);
 
   return (
     <article className="product-card">
+      {!product?.status && <div className="product-status">Omborda mavjud emas !</div>}
       <div className="flex gap10">
         <ImageSection img={product.img} name={product.name} />
         <InfoSection
@@ -18,6 +19,8 @@ const ProductCard = ({ product }) => {
           tags={product.tags}
           active={type}
           onToggle={toggleType}
+          handleTag={handleTag}
+          tag={tag}
         />
       </div>
       <FooterSection total={total} count={count} inc={inc} dic={dic} />

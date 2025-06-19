@@ -1,6 +1,8 @@
+import Image from "../image";
+
 const ImageSection = ({ img, name }) => (
   <div className="product-card-img">
-    <img src={img} alt={name} />
+    <Image src={img} alt={name} />
   </div>
 );
 

@@ -6,7 +6,9 @@ export const useProductLogic = (product) => {
   const existingOrder = useOrderStore((s) => s.orders.find((o) => o.id === id));
   const [count, setCount] = useState(existingOrder?.count || 0);
   const [type, setType] = useState(existingOrder?.type || "BLOK");
+  const [tag, setTag] = useState(existingOrder?.tag || tags?.[0] || null);
   const addOrder = useOrderStore((s) => s.addOrder);
+  const orders = useOrderStore((s) => s.orders);
 
   const price = useMemo(() => {
     if (type === "BLOK") {
@@ -19,8 +21,8 @@ export const useProductLogic = (product) => {
   const total = useMemo(() => price * count, [price, count]);
 
   const orderData = useMemo(
-    () => ({ name, img, price, tags, id, total, type, count }),
-    [name, img, price, tags, id, total, type, count]
+    () => ({ name, img, price, tag, id, total, type, count }),
+    [name, img, price, tag, id, total, type, count]
   );
 
   useEffect(() => {
@@ -39,6 +41,10 @@ export const useProductLogic = (product) => {
     setType(newType);
   };
 
+  const handleTag = (newTag) => {
+    setTag(newTag);
+  };
+
   return {
     count,
     total,
@@ -46,6 +52,8 @@ export const useProductLogic = (product) => {
     dic,
     inc,
     toggleType,
+    handleTag,
+    tag,
     price,
   };
 };

@@ -1,11 +1,20 @@
 export const products = [
   {
-    id: 76,
-    img: "https://maxway.uz/_next/image?url=https%3A%2F%2Fcdn.delever.uz%2Fdelever%2F2bcaa31b-8b5a-4e16-afe8-ba812c599d55&w=1920&q=752",
+    id: 1,
+    img: "2F91f72331-571c-45b8-9745-b2b961ed5e0d&w=640&q=75",
     name: "18+ 0.25L",
-    tags: ["Shakarli", "Shakarsiz", "Olmali", "Nokli", "Anorli"],
+    tags: ["SHAKARLI", "SHAKARSIZ", "OLMALI", "NOKLI", "ANORLI"],
     block_price: 90000,
     unit_price: 7500,
+    status: true,
+  },
+  {
+    id: 2,
+    img: null,
+    name: "Fanta 2L",
+    tags: null,
+    block_price: 180000,
+    unit_price: 12000,
     status: true,
   },
 ];

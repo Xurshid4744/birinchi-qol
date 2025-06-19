@@ -1,17 +1,12 @@
+import { formatAmount } from "@/utils/amountConvertor";
 import TypeToogle from "../type-toggle";
+import TagsSection from "./tags-section";
 
-const InfoSection = ({ name, price, tags, active, onToggle }) => (
-  <div>
+const InfoSection = ({ name, price, tags, active, onToggle, handleTag, tag }) => (
+  <div className="product-info">
     <p className="product-card-name">{name}</p>
-    <p className="product-card-price">{price} UZS</p>
-    {/* <p className="product-card-tag">( {tags?.[0]} )</p> */}
-    <div className="product-card-tags">
-      {tags?.map((item) => (
-        <p className="product-card-tag" key={item}>
-          {item}
-        </p>
-      ))}
-    </div>
+    <p className="product-card-price">{formatAmount(price)} UZS</p>
+    <TagsSection tags={tags} handleTag={handleTag} tag={tag}/>
     <TypeToogle handleToggle={onToggle} active={active} />
   </div>
 );

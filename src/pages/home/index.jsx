@@ -7,18 +7,21 @@ import useUserStore from "@/store/user";
 
 const HomePage = () => {
   const orders = useOrderStore((state) => state.orders);
-    const user = useUserStore((state) => state.user);
-  
+  const user = useUserStore((state) => state.user);
+
   return (
     <div>
-      {/* <Header />
+      <Header />
       HomePage
       {products?.map((item) => (
         <ProductCard product={item} key={item?.id} />
       ))}
-      {orders?.map((item) => (
-        <h1 key={item.id}>{item?.name}</h1>
-      ))} */}
+      {orders
+        ?.slice()
+        .sort((a, b) => a?.index - b?.index)
+        .map((item) => (
+          <h1 key={item?.id}>{item?.name}</h1>
+        ))}
       <h1>id:{user?.id}</h1>
       <h1>is_bot:{user?.is_bot}</h1>
       <h1>first_name:{user?.first_name}</h1>
