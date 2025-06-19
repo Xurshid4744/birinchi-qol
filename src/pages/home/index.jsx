@@ -4,10 +4,12 @@ import { Header } from "@/components";
 import { products } from "@/server/products";
 import { useOrderStore } from "@/store/order";
 import useUserStore from "@/store/user";
+import { useTelegramApp } from "@/hooks";
 
 const HomePage = () => {
   const orders = useOrderStore((state) => state.orders);
-  const user = useUserStore((state) => state.user);
+  // const user = useUserStore((state) => state.user);
+  const { user } = useTelegramApp();
 
   return (
     <div>
