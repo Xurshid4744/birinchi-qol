@@ -26,15 +26,15 @@ const HomePage = () => {
         ))}
       <h1>👤 Telegram Foydalanuvchisi</h1>
       <ul>
-        <li>ID: {user.id}</li>
-        <li>Ism: {user.first_name}</li>
-        {user.last_name && <li>Familiya: {user.last_name}</li>}
-        {user.username && <li>Username: @{user.username}</li>}
-        <li>Tili: {user.language_code}</li>
-        {user.photo_url && (
+        <li>ID: {user?.id}</li>
+        <li>Ism: {user?.first_name}</li>
+        {user?.last_name && <li>Familiya: {user?.last_name}</li>}
+        {user?.username && <li>Username: @{user?.username}</li>}
+        <li>Tili: {user?.language_code}</li>
+        {user?.photo_url && (
           <li>
             Avatar:{" "}
-            <img src={user.photo_url} width="80" height="80" alt="avatar" />
+            <img src={user?.photo_url} width="80" height="80" alt="avatar" />
           </li>
         )}
       </ul>

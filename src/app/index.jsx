@@ -4,7 +4,7 @@ import router from "@/routes";
 
 function App() {
   const { user } = useTelegramApp();
-  if (!user) return <h1>Not Found</h1>;
+  // if (!user) return <h1>Not Found</h1>;
   return <RouterProvider router={router} />;
 }
 
