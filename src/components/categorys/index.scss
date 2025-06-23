@@ -1,0 +1,23 @@
+.categorys {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0 10px;
+  padding-bottom: 10px;
+  .category {
+    padding: 5px;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    white-space: nowrap;
+    &[data-active="true"] {
+      background-color: #242424;
+      color: #ffffff;
+    }
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

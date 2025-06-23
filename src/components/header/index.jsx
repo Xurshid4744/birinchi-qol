@@ -1,11 +1,15 @@
-import React from "react";
-import { CartComponent } from "..";
+import { useNavigate } from "react-router-dom";
+import { ChevronsLeft } from "lucide-react";
 import "./index.scss";
-const Header = () => {
+const Header = ({ title }) => {
+  const navigate = useNavigate();
+  const toBack = () => {
+    navigate(-1);
+  };
   return (
     <header className="header">
-      Bazarly
-      <CartComponent />
+      <h4>{title}</h4>
+      <ChevronsLeft onClick={toBack} />
     </header>
   );
 };

@@ -1,29 +1,31 @@
 import React from "react";
 import ProductCard from "@/components/product-card";
-import { Header } from "@/components";
-import { products } from "@/server/products";
-import { useOrderStore } from "@/store/order";
 import useUserStore from "@/store/user";
 import { useTelegramApp } from "@/hooks";
-
+import { Categorys, GlobalSearch, Header } from "@/components";
+import { products } from "@/server/products";
+import { useOrderStore } from "@/store/order";
 const HomePage = () => {
   const orders = useOrderStore((state) => state.orders);
   // const user = useUserStore((state) => state.user);
   const { user } = useTelegramApp();
 
   return (
-    <div>
-      <Header />
-      HomePage
-      {products?.map((item) => (
-        <ProductCard product={item} key={item?.id} />
-      ))}
-      {orders
+    <div className="container">
+      <Header title={"🛒 Buyurtma berish"} />
+      <GlobalSearch />
+      <Categorys />
+      <div className="asd">
+        {products?.map((item) => (
+          <ProductCard product={item} key={item?.id} />
+        ))}
+      </div>
+      {/* {orders
         ?.slice()
         .sort((a, b) => a?.index - b?.index)
         .map((item) => (
           <h1 key={item?.id}>{item?.name}</h1>
-        ))}
+        ))} */}
       <h1>👤 Telegram Foydalanuvchisi</h1>
       <ul>
         <li>ID: {user?.id}</li>

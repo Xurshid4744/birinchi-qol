@@ -19,3 +19,34 @@ body {
 .gap10 {
   gap: 10px;
 }
+
+.container {
+  max-width: 770px;
+  min-width: 300px;
+  margin: 0 auto;
+}
+
+.search-input {
+  padding: 10px;
+  .input {
+    width: 100%;
+    border: 1px solid #242424;
+    padding: 5px;
+    border-radius: 6px;
+  }
+}
+
+.asd {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px 0;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

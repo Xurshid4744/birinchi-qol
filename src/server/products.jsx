@@ -17,4 +17,13 @@ export const products = [
     unit_price: 12000,
     status: true,
   },
+   {
+    id: 3,
+    img: null,
+    name: "Fanta 1L",
+    tags: null,
+    block_price: 180000,
+    unit_price: 12000,
+    status: true,
+  },
 ];
