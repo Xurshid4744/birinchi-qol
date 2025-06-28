@@ -6,13 +6,13 @@ const MenuBar = () => {
   return (
     <div className="menu-bar">
       <NavLink to={"/cart"} className="menu-bar-link" s>
-        <ShoppingBag size={35}/>
+        <ShoppingBag />
       </NavLink>
       <NavLink to={"/"} className="menu-bar-link" s>
-        <Plus size={35}/>
+        <DiamondPlus />
       </NavLink>
       <NavLink to={"/orders"} className="menu-bar-link" s>
-        <Folders size={35}/>
+        <Folders />
       </NavLink>
     </div>
   );
