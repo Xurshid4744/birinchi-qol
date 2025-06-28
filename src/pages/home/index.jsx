@@ -2,8 +2,7 @@ import React from "react";
 import ProductCard from "@/components/product-card";
 import useUserStore from "@/store/user";
 import { useTelegramApp } from "@/hooks";
-import { Categorys, GlobalSearch, Header } from "@/components";
-import { products } from "@/server/products";
+import { CategoryGroup, Categorys, GlobalSearch, Header, SortedCategories } from "@/components";
 import { useOrderStore } from "@/store/order";
 const HomePage = () => {
   const orders = useOrderStore((state) => state.orders);
@@ -15,11 +14,7 @@ const HomePage = () => {
       <Header title={"🛒 Buyurtma berish"} />
       <GlobalSearch />
       <Categorys />
-      <div className="asd">
-        {products?.map((item) => (
-          <ProductCard product={item} key={item?.id} />
-        ))}
-      </div>
+      <SortedCategories/>
       {/* {orders
         ?.slice()
         .sort((a, b) => a?.index - b?.index)

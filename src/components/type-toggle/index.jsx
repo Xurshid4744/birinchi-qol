@@ -1,16 +1,15 @@
 import React from "react";
 import "./index.scss";
 
-const options = ["BLOK", "DONA"];
 
-const TypeToggle = React.memo(({ handleToggle, active }) => {
+const TypeToggle = React.memo(({ handleToggle, active, typeOptions, isTypeLocked }) => {
   return (
     <div className="type-toggle">
-      {options.map((option) => (
+      {typeOptions.map((option) => (
         <div
           key={option}
-          onClick={() => handleToggle(option)}
-          className={`type-toggle-item ${active === option ? "active" : ""}`}
+           onClick={() => !isTypeLocked && handleToggle(option)} 
+          className={`type-toggle-item ${active === option ? "active" : ""} ${isTypeLocked ? "locked" : ""}`}
         >
           {option}
         </div>

@@ -19,4 +19,8 @@
     width: 100%;
     padding: 4px 0;
   }
+  .type-toggle-item.locked {
+    pointer-events: none;
+    cursor: default;
+  }
 }

@@ -17,7 +17,9 @@ export const useOrderStore = create()(
           return;
         }
 
-        const index = existing?.index ?? (currentOrders.length
+        const index =
+          existing?.index ??
+          (currentOrders.length
             ? Math.max(...currentOrders.map((o) => o.index ?? 0)) + 1
             : 1);
 
@@ -32,6 +34,21 @@ export const useOrderStore = create()(
         });
       },
       clearOrders: () => set({ orders: [] }),
+
+      removeOrder: (id) => {
+        const currentOrders = get().orders;
+        set({ orders: currentOrders.filter((o) => o.id !== id) });
+      },
+
+      getTotalSum: () => {
+        return get().orders.reduce((sum, o) => sum + o.total, 0);
+      },
+
+      getSortedOrders: () => {
+        return [...get().orders].sort(
+          (a, b) => (a.index || 0) - (b.index || 0)
+        );
+      },
     }),
     {
       name: "order-storage",

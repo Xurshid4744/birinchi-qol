@@ -1,6 +1,7 @@
-export const products = [
+export const PRODUCTS_DATA = [
   {
     id: 1,
+    category_id: 1,
     img: "2F91f72331-571c-45b8-9745-b2b961ed5e0d&w=640&q=75",
     name: "18+ 0.25L",
     tags: ["SHAKARLI", "SHAKARSIZ", "OLMALI", "NOKLI", "ANORLI"],
@@ -10,6 +11,7 @@ export const products = [
   },
   {
     id: 2,
+    category_id: 1,
     img: null,
     name: "Fanta 2L",
     tags: null,
@@ -17,12 +19,13 @@ export const products = [
     unit_price: 12000,
     status: true,
   },
-   {
+  {
     id: 3,
+    category_id: 2,
     img: null,
     name: "Fanta 1L",
     tags: null,
-    block_price: 180000,
+    block_price: null,
     unit_price: 12000,
     status: true,
   },

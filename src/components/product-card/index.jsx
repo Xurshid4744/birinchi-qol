@@ -6,7 +6,7 @@ import FooterSection from "./footer-section";
 import "./index.scss";
 
 const ProductCard = ({ product }) => {
-  const { count, total, type, dic, inc, toggleType, handleTag, tag, price } = useProductLogic(product);
+  const { count, total, type, dic, inc, toggleType, handleTag, tag, price, typeOptions, isTypeLocked} = useProductLogic(product);
 
   return (
     <article className="product-card">
@@ -21,6 +21,8 @@ const ProductCard = ({ product }) => {
           onToggle={toggleType}
           handleTag={handleTag}
           tag={tag}
+          typeOptions={typeOptions}
+          isTypeLocked={isTypeLocked}
         />
       </div>
       <FooterSection total={total} count={count} inc={inc} dic={dic} />
@@ -28,4 +30,6 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default React.memo(ProductCard, (prev, next) => {
+  return prev.product === next.product;
+});
