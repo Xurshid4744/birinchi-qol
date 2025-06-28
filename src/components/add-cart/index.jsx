@@ -5,9 +5,19 @@ import "./index.scss";
 const AddCart = React.memo(({ dic, inc, count }) => {
   return (
     <div className="add-cart">
-      <button className="add-cart-btn" onClick={dic} disabled={count === 0}><Minus/></button>
-      <span>{count}</span>
-      <button className="add-cart-btn" onClick={inc}><Plus/></button>
+      {count === 0 ? (
+        <p onClick={inc} className="add-cart-button">+ Qo'shish</p>
+      ) : (
+        <>
+          <button className="add-cart-btn" onClick={dic} disabled={count === 0}>
+            <Minus />
+          </button>
+          <span>{count}</span>
+          <button className="add-cart-btn" onClick={inc}>
+            <Plus />
+          </button>
+        </>
+      )}
     </div>
   );
 });

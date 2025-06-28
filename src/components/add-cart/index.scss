@@ -2,18 +2,25 @@
   display: flex;
   align-items: center;
   background-color: #f0f0f0;
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
+  .add-cart-button{
+    padding: 7px 15px;
+    background-color: #242424;
+    color: #ffffff;
+    font-style: italic;
+  }
   .add-cart-btn {
     padding: 5px;
     outline: none;
     border: none;
     display: grid;
     place-items: center;
-    width: 40px;
+    width: 50px;
     background-color: #f0f0f0;
   }
   & > span {
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 700;
   }
 }
