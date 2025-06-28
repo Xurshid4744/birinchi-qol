@@ -4,3 +4,4 @@ export { default as GlobalSearch } from "./global-search";
 export { default as Categorys } from "./categorys";
 export { default as CategoryGroup } from "./category-group";
 export { default as SortedCategories } from "./sorted-categories";
+export { default as MenuBar } from "./menu-bar";

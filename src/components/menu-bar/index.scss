@@ -1,0 +1,36 @@
+.menu-bar {
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+  //   width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  justify-content: center;
+  align-items: center;
+  padding-block: 5px;
+  gap: 20px;
+  z-index: 9999;
+  height: 50px;
+  padding-inline: 10px;
+  box-shadow: 5px 2px 10px hsla(0, 0%, 87%, 0.88);
+  border-radius: 30px;
+  .menu-bar-link {
+    background-color: #ffffff;
+    color: #f0f0f0;
+    display: grid;
+    place-items: center;
+    padding: 4px;
+    border-radius: 100%;
+  }
+  .menu-bar-link.active {
+    background-color: #006f4c;
+    box-shadow: 0px 0px 10px #4cbd99;
+
+    color: #ffffff;
+    > svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
