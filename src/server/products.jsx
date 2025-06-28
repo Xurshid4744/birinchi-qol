@@ -29,4 +29,14 @@ export const PRODUCTS_DATA = [
     unit_price: 12000,
     status: true,
   },
+  {
+    id: 4,
+    category_id: 1,
+    img: null,
+    name: "Pepsi 1l",
+    tags: null,
+    block_price: 89652,
+    unit_price: null,
+    status: true,
+  },
 ];

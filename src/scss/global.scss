@@ -12,6 +12,16 @@ html,
 body {
   overflow: hidden;
 }
+.home {
+  display: grid;
+  height: 100vh;
+  .home-sorted-categorys-group {
+    overflow-y: auto;
+    // &::-webkit-scrollbar {
+    //   display: none;
+    // }
+  }
+}
 
 .flex {
   display: flex;
@@ -34,20 +44,5 @@ body {
     padding: 10px 5px;
     border-radius: 6px;
     font-size: 16px;
-  }
-}
-
-.asd {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  // margin-left: 10px;
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  padding: 10px;
-  &::-webkit-scrollbar {
-    display: none;
   }
 }
