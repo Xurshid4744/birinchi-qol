@@ -1,5 +1,5 @@
 .type-toggle {
-  border-radius: 5px;
+  border-radius: 20px;
   background-color: #f0f0f0;
   font-size: 12px;
   width: 120px;
@@ -9,10 +9,11 @@
   padding: 5px;
   .active {
     // background-color: #00ad46;
-    background-color: #242424;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #242424;
     font-weight: 700;
-    border-radius: 4px;
+    border-radius: 30px;
+    box-shadow: 5px 2px 10px hsla(0, 0%, 87%, 0.88);
   }
   .type-toggle-item {
     display: flex;
