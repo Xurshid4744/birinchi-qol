@@ -31,8 +31,9 @@ body {
   .input {
     width: 100%;
     border: 1px solid #242424;
-    padding: 5px;
+    padding: 10px 5px;
     border-radius: 6px;
+    font-size: 16px;
   }
 }
 
@@ -40,12 +41,12 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 10px;
+  // margin-left: 10px;
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-  padding: 10px 0;
+  padding: 10px;
   &::-webkit-scrollbar {
     display: none;
   }
