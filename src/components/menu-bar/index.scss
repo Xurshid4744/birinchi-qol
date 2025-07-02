@@ -2,19 +2,42 @@
   background-color: #ffffff;
   position: fixed;
   bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
   z-index: 9999;
+  padding-bottom: 10px;
+  padding-inline: 10px;
   .menu-bar-link {
-    color: #f0f0f0;
-    display: grid;
-    place-items: center;
+    color: #6d6c6c;
+    display: flex;
+    justify-content: center;
     padding: 10px;
+    width: 100%;
+    text-decoration: none;
+    position: relative;
+    .badge{
+      background-color: red;
+      color: #ffffff;
+      font-weight: 600;
+      border-radius: 100%;
+      width: 18px;
+      height: 18px;
+      font-size: 8px;
+      display: grid;
+      place-items: center;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
   .menu-bar-link.active {
     color: #006f4c;
+    box-shadow: 0 0 10px #ddd;
+    border-radius: 30px;
   }
 }
