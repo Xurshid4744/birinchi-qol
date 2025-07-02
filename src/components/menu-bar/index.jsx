@@ -1,20 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { DiamondPlus, Folders, Plus, ShoppingBag } from "lucide-react";
-import "./index.scss";
 import { useOrderStore } from "@/store/order";
+import { formatAmount } from "@/utils/amountConvertor";
+import "./index.scss";
 const MenuBar = () => {
   const order = useOrderStore((s) => s.orders);
+  const getTotalSum = useOrderStore((s) => s.getTotalSum);
   return (
-    <div className="container menu-bar">
+    <div className="menu-bar">
       <NavLink to={"/cart"} className="menu-bar-link">
-        🛒 <span className="badge">{order?.length}</span>
-      </NavLink>
-      <NavLink to={"/"} className="menu-bar-link">
-        📦
-      </NavLink>
-      <NavLink to={"/orders"} className="menu-bar-link">
-        📝
+        <p>Savatda: {order?.length} xil mahsulot</p>
+        <p>{formatAmount(getTotalSum())} so'm</p>
       </NavLink>
     </div>
   );

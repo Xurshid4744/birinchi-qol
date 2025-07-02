@@ -7,6 +7,7 @@ import {
   Categorys,
   GlobalSearch,
   Header,
+  MenuBar,
   SortedCategories,
 } from "@/components";
 import { useOrderStore } from "@/store/order";
@@ -23,6 +24,7 @@ const HomePage = () => {
       <div className="home-sorted-categorys-group">
         <SortedCategories />
       </div>
+       <MenuBar />
       {/* {orders
         ?.slice()
         .sort((a, b) => a?.index - b?.index)
