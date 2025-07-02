@@ -18,7 +18,7 @@ const HomePage = () => {
 
   return (
     <div className="container home">
-      <Header title={"🛒 Buyurtma berish"} />
+      {/* <Header title={"🛒 Buyurtma berish"} /> */}
       <GlobalSearch />
       <Categorys />
       <div className="home-sorted-categorys-group">
