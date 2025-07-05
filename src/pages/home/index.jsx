@@ -24,7 +24,7 @@ const HomePage = () => {
       <div className="home-sorted-categorys-group">
         <SortedCategories />
       </div>
-      {orders?.length > 0 && <MenuBar />}
+      <MenuBar />
       {/* {orders
         ?.slice()
         .sort((a, b) => a?.index - b?.index)

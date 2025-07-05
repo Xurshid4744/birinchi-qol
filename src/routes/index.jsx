@@ -1,9 +1,10 @@
 import Layout from "@/layout";
 import { lazy } from "react";
-import { createBrowserRouter, Navigate } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 const HomePage = lazy(() => import("@/pages/home"));
 const OrderPage = lazy(() => import("@/pages/order"));
+const CartPage = lazy(() => import("@/pages/cart"));
 
 const router = createBrowserRouter([
   {
@@ -18,9 +19,9 @@ const router = createBrowserRouter([
         path: "/orders",
         element: <OrderPage />,
       },
-        {
+      {
         path: "/cart",
-        element: <h1>Cart</h1>,
+        element: <CartPage />,
       },
     ],
   },

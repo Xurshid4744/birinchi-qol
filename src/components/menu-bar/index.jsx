@@ -9,8 +9,8 @@ const MenuBar = () => {
   return (
     <div className="menu-bar">
       <Link to={"/cart"} className="menu-bar-link">
-        <p>Savatda: {order?.length} xil mahsulot</p>
-        <p>{formatAmount(getTotalSum())} so'm</p>
+        <p>Savatda: {order?.length > 0 ? `${order?.length} ta mahsulot` : 'Mahsulot mavjud emas'}</p>
+        <p>{formatAmount(getTotalSum()) || 0} so'm</p>
       </Link>
     </div>
   );
