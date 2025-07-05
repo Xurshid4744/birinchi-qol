@@ -1,8 +1,10 @@
-import { ArrowLeft, BrushCleaning, Trash } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
-const MenuHeader = ({ to, title }) => {
+import { useOrderStore } from "@/store/order";
+const MenuHeader = ({ to, title, clear = false }) => {
+  const clearOrders = useOrderStore((s) => s.clearOrders);
   return (
     <div className="menu-header">
       <div className="flexItems gap10">
@@ -11,7 +13,11 @@ const MenuHeader = ({ to, title }) => {
         </Link>
         <h4>{title}</h4>
       </div>
-      <div className="flexItems gap10 clear">🗑️ Tozalash</div>
+      {clear && (
+        <div className="flexItems gap10 clear" onClick={clearOrders}>
+          🗑️ Tozalash
+        </div>
+      )}
     </div>
   );
 };

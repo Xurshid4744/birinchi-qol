@@ -2,11 +2,11 @@ import { formatAmount } from "@/utils/amountConvertor";
 import TypeToogle from "../type-toggle";
 import TagsSection from "./tags-section";
 
-const InfoSection = ({ name, price, tags, active, onToggle, handleTag, tag, typeOptions, isTypeLocked }) => (
+const InfoSection = ({ name, price, tags, active, onToggle, handleTag, tag, typeOptions, isTypeLocked, width }) => (
   <div className="product-info">
     <p className="product-card-name">{name}</p>
     <p className="product-card-price">{formatAmount(price)} UZS</p>
-    <TagsSection tags={tags} handleTag={handleTag} tag={tag}/>
+    <TagsSection tags={tags} handleTag={handleTag} tag={tag} width={width}/>
     <TypeToogle handleToggle={onToggle} active={active} typeOptions={typeOptions} isTypeLocked={isTypeLocked} />
   </div>
 );

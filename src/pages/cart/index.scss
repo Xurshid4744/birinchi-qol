@@ -1,0 +1,35 @@
+.cart-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  .cart-page-orders {
+    padding-inline: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-block: 10px;
+    height: 100%;
+    .cart-empty {
+      display: grid;
+      place-items: center;
+      height: 100%;
+    }
+  }
+  .place-order {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    width: 95%;
+    margin: 0 auto;
+    text-decoration: none;
+    background-color: #006f4c;
+    color: #ffffff;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+}

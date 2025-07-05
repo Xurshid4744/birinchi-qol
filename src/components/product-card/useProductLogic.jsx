@@ -4,7 +4,7 @@ import { useDebounceFn } from "@/hooks/useDebounceFn";
 import { deepEqual } from "@/utils/equal";
 
 export const useProductLogic = (product) => {
-  const { name, unit_price, block_price, tags, id } = product;
+  const { name, unit_price, block_price, tags, id, category_id, img, status} = product;
 
   const typeOptions = useMemo(() => {
     const options = [];
@@ -40,8 +40,8 @@ export const useProductLogic = (product) => {
   const total = useMemo(() => price * count, [price, count]);
 
   const orderData = useMemo(
-    () => ({ name, price, tag, id, total, type, count }),
-    [name, price, tag, id, total, type, count]
+    () => ({ name, price, tag, id, total, type, count, block_price, category_id, img, status, tags, unit_price}),
+    [name, price, tag, id, total, type, count, block_price, category_id, img, status, tags, unit_price]
   );
 
   const prevOrderRef = useRef(null);
