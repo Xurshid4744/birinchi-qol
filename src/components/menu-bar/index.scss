@@ -2,6 +2,8 @@
   background-color: #ffffff;
   padding-bottom: 10px;
   padding-inline: 10px;
+  position: relative;
+  z-index: 50;
   .menu-bar-link {
     color: #6d6c6c;
     display: flex;
