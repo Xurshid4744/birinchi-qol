@@ -10,9 +10,21 @@ const useCategoryStore = create((set) => ({
 
   fetchCategories: async () => {
     try {
-      const res = await axiosInstance.get("/category/list");
-      set({ categorys: res.data });
-      set({ activeCategory: res.data[0] });
+      const response = await fetch("/category/list", {
+        method: "GET",
+        credentials: "include", // agar cookie kerak bo‘lsa
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      set({ categorys: data });
+      set({ activeCategory: data[0] });
     } catch (error) {
       console.error("Kategoriya olishda xatolik:", error);
     }
