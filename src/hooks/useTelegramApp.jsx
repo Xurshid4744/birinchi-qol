@@ -5,8 +5,9 @@ const useTelegramApp = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const userData = WebApp.initDataUnsafe.user;
-    setUser(userData);
+    WebApp.ready();
+    const tgUser = WebApp.initDataUnsafe?.user;
+    setUser(tgUser || null);
   }, []);
 
   return { user };

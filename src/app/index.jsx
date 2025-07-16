@@ -7,13 +7,16 @@ import useProductsStore from "@/store/products";
 
 function App() {
   const { user } = useTelegramApp();
-  // if (!user) return <h1>Not Found</h1>;
   const fetchCategories = useCategoryStore((state) => state.fetchCategories);
   const fetchProducts = useProductsStore((state) => state.fetchProducts);
+
   useEffect(() => {
+    if (!user) return;
     fetchCategories();
     fetchProducts();
-  }, []);
+  }, [user]);
+
+  if (!user) return <h1>Loading...</h1>;
   return <RouterProvider router={router} />;
 }
 
