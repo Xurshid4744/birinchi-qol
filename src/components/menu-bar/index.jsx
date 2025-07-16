@@ -9,6 +9,7 @@ const MenuBar = () => {
   const order = useOrderStore((s) => s.orders);
   const getTotalSum = useOrderStore((s) => s.getTotalSum);
   const isActive = getTotalSum() >= MIN_ORDER_AMOUNT;
+  
   return (
     <div className="menu-bar">
       <Link to={"/cart"} className="menu-bar-link">
