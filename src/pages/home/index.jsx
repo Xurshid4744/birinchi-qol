@@ -16,10 +16,11 @@ const HomePage = () => {
   const orders = useOrderStore((state) => state.orders);
   // const user = useUserStore((state) => state.user);
   const { user } = useTelegramApp();
-
   return (
     <div className="container home">
       <GlobalSearch />
+      <h1>{JSON.stringify(window.location.origin)}</h1>
+      <h1>{JSON.stringify(document.referrer)}</h1>
       <Categorys />
       <div className="home-sorted-categorys-group">
         <SortedCategories />
