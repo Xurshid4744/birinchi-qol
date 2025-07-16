@@ -11,10 +11,10 @@ const SortedCategories = () => {
   const groupedProducts = React.useMemo(() => {
     const map = new Map();
     products.forEach((product) => {
-      if (!map.has(product.category_id)) {
-        map.set(product.category_id, []);
+      if (!map.has(JSON.parse(product.category)?.id)) {
+        map.set(JSON.parse(product.category)?.id, []);
       }
-      map.get(product.category_id).push(product);
+      map.get(JSON.parse(product.category)?.id).push(product);
     });
     return map;
   }, [products]);

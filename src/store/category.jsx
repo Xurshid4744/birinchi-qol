@@ -1,4 +1,4 @@
-import { CATEGOYS_DATA } from "@/server/categorys";
+import axiosInstance from "@/api";
 import { create } from "zustand";
 
 const useCategoryStore = create((set) => ({
@@ -10,11 +10,9 @@ const useCategoryStore = create((set) => ({
 
   fetchCategories: async () => {
     try {
-      //   const res = await fetch("/api/categories");
-      //   const data = await res.json();
-      //   set({ categorys: data });
-      set({ categorys: CATEGOYS_DATA });
-      set({ activeCategory: CATEGOYS_DATA[0] });
+      const res = await axiosInstance.get("/category/list");
+      set({ categorys: res.data });
+      set({ activeCategory: res.data[0] });
     } catch (error) {
       console.error("Kategoriya olishda xatolik:", error);
     }

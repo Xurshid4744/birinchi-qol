@@ -12,17 +12,6 @@ html,
 body {
   overflow: hidden;
 }
-.home {
-  display: grid;
-  height: 100vh;
-  .home-sorted-categorys-group {
-    overflow-y: auto;
-    // background-color: #f4f4f4;
-    // &::-webkit-scrollbar {
-    //   display: none;
-    // }
-  }
-}
 
 .flex {
   display: flex;
@@ -42,12 +31,20 @@ body {
 }
 
 .search-input {
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  height: 45px;
+  padding: 0 20px;
+  margin: 10px;
+  border-radius: 20px;
   .input {
     width: 100%;
-    border: 1px solid #242424;
+    border: none;
+    outline: none;
     padding: 10px 5px;
     border-radius: 6px;
+    background-color: inherit;
     font-size: 16px;
   }
 }

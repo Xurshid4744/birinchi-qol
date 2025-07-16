@@ -11,6 +11,7 @@ import {
   SortedCategories,
 } from "@/components";
 import { useOrderStore } from "@/store/order";
+import "./index.scss";
 const HomePage = () => {
   const orders = useOrderStore((state) => state.orders);
   // const user = useUserStore((state) => state.user);
@@ -18,7 +19,6 @@ const HomePage = () => {
 
   return (
     <div className="container home">
-      {/* <Header title={"🛒 Buyurtma berish"} /> */}
       <GlobalSearch />
       <Categorys />
       <div className="home-sorted-categorys-group">
