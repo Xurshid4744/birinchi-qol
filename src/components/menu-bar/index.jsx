@@ -16,7 +16,7 @@ const MenuBar = () => {
           <ShoppingBasket />
         </span>
         <div style={{textAlign: 'center'}}>
-          <p>{formatAmount(getTotalSum()) || 0} UZS</p>
+          <p className="menu-bar-total-amount">{formatAmount(getTotalSum()) || 0} UZS</p>
           {!isActive && (
             <p className="menu-bar-min-amount">
               Min. buyurtma {formatAmount(MIN_ORDER_AMOUNT)} UZS

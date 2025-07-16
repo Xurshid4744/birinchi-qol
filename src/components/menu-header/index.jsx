@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, BrushCleaning, Trash2 } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./index.scss";
@@ -9,13 +9,13 @@ const MenuHeader = ({ to, title, clear = false }) => {
     <div className="menu-header">
       <div className="flexItems gap10">
         <Link to={to} className="menu-header-icon">
-          <ArrowLeft />
+          <ArrowLeft size={30} />
         </Link>
         <h4>{title}</h4>
       </div>
       {clear && (
         <div className="flexItems gap10 clear" onClick={clearOrders}>
-          🗑️ Tozalash
+          <img src="/assets/image/garbage-can.png" alt="bin" />
         </div>
       )}
     </div>

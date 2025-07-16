@@ -7,9 +7,11 @@ import "./index.scss";
 
 const PlaceOrder = () => {
   return (
-    <Link to={"/checkout"} className="place-order">
-      <CircleCheckBig size={20} /> Buyurtmani rasmiylashtirish
-    </Link>
+    <div className="menu-bar">
+      <Link to={"/checkout"} className="place-order">
+        <CircleCheckBig size={20} /> Buyurtmani rasmiylashtirish
+      </Link>
+    </div>
   );
 };
 
@@ -20,7 +22,7 @@ const CartPage = () => {
 
   return (
     <div className="cart-page container">
-      <MenuHeader to={"/"} title="Savat" clear={true} />
+      <MenuHeader to={"/"} title="Savatcha" clear={true} />
       <div className="cart-page-orders">
         {getSortedOrders?.length === 0 && (
           <div className="cart-empty">Savatda mahsulot mavjud emas !</div>

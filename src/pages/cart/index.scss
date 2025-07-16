@@ -1,6 +1,6 @@
 .cart-page {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   height: 100vh;
   .cart-page-orders {
     padding-inline: 15px;
@@ -20,16 +20,16 @@
   .place-order {
     display: flex;
     align-items: center;
-    gap: 10px;
     justify-content: center;
-    padding: 10px;
-    width: 95%;
-    margin: 0 auto;
+    gap: 10px;
+    padding: 4px 10px;
+    width: 100%;
     text-decoration: none;
     background-color: #006f4c;
     color: #ffffff;
     border-radius: 10px;
     font-weight: 600;
     font-size: 14px;
+    height: 40px;
   }
 }

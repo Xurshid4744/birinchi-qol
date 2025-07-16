@@ -4,7 +4,6 @@ import "./index.scss";
 import { useOrderStore } from "@/store/order";
 const CartComponent = () => {
   const orders = useOrderStore((s) => s.orders);
-
   return (
     <div className="cart-component">
       <div className="cart-icon">
