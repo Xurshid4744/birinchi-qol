@@ -28,7 +28,6 @@ const SortedCategories = () => {
 
   return (
     <div className="sorted-categories">
-      {JSON.stringify(products)}
       {sortedCategorys?.map((item) => (
         <CategoryGroup
           key={item?.id}
