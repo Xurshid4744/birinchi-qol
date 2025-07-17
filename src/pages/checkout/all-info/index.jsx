@@ -6,7 +6,7 @@ import { formatAmount } from "@/utils/amountConvertor";
 import { DELEVERY_AMOUNT } from "@/constants/common";
 import axiosInstance from "@/api";
 
-const AllInfo = () => {
+const AllInfo = ({ orderForm }) => {
   const user = useUserStore((state) => state.user);
   const getTotalSum = useOrderStore((s) => s.getTotalSum);
   const user_name = `${(user?.first_name && user?.first_name) || ""} ${
@@ -24,7 +24,7 @@ const AllInfo = () => {
   }, []);
   return (
     <div className="checkout-all-info">
-      <h6 className="checkout-all-info-title">Mening buyurtmam</h6>
+      <h6 className="checkout-all-info-title">Umumiy</h6>
       <div>
         <div class="dot-between">
           <p class="left">👤 Buyurtmachi:</p>
@@ -35,23 +35,31 @@ const AllInfo = () => {
           <p class="right">{formatAmount(getTotalSum())} UZS</p>
         </div>
 
-        <div class="dot-between">
-          <p class="left">🚚 Yetkazib berish:</p>
-          <p class="right">{formatAmount(DELEVERY_AMOUNT)} UZS</p>
-        </div>
-        {debt && (
+        {
           <div class="dot-between">
-            <p class="left">💰 Qarzdorlik:</p>
+            <p class="left">🚚 Yetkazib berish:</p>
             <p class="right">
-              {formatAmount(debt?.amount)} UZS ( {debt?.reason} )
+              {orderForm?.orderType == 1 ? formatAmount(DELEVERY_AMOUNT) : 0}{" "}
+              UZS
             </p>
           </div>
-        )}
+        }
+
+        <div class="dot-between">
+          <p class="left">💰 Qarzdorlik:</p>
+          <p class="right">
+            {debt
+              ? `${formatAmount(debt?.amount)} UZS ( ${debt?.reason} )`
+              : `0 UZS`}
+          </p>
+        </div>
 
         <div class="dot-between">
           <p class="left">🪙 Jami summa:</p>
           <p class="right">
-            {formatAmount(DELEVERY_AMOUNT + getTotalSum())} UZS
+            {orderForm?.orderType == 1
+              ? `${formatAmount(DELEVERY_AMOUNT + getTotalSum())} UZS`
+              : `${formatAmount(getTotalSum())} UZS`}
           </p>
         </div>
       </div>

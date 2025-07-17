@@ -2,8 +2,10 @@ import { useOrderStore } from "@/store/order";
 import { formatAmount } from "@/utils/amountConvertor";
 import React from "react";
 import "./index.scss";
-const OrderList = () => {
+
+const OrderListComponent = () => {
   const orders = useOrderStore((s) => s.orders);
+
   return (
     <div className="checkout-order-list">
       <h6 className="checkout-order-list-title">Mening buyurtmam</h6>
@@ -26,4 +28,5 @@ const OrderList = () => {
   );
 };
 
+const OrderList = React.memo(OrderListComponent);
 export default OrderList;
