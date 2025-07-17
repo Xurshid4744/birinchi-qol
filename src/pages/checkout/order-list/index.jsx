@@ -8,7 +8,7 @@ const OrderListComponent = () => {
 
   return (
     <div className="checkout-order-list">
-      <h6 className="checkout-order-list-title">Mening buyurtmam</h6>
+      <h6 className="checkout-order-list-title">Buyurtma maxsulotlari</h6>
       <div className="orders-list">
         {orders?.map((item, index) => (
           <div className="checkout-page-order">
