@@ -1,0 +1,44 @@
+.checkout-ransom-type {
+  padding-inline: 10px;
+  margin-top: 10px;
+  .checkout-ransom-type-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+  .checkout-ransom-type-select {
+    background-color: #f0f0f0;
+    padding: 10px 0px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-inline-start: 50px;
+    border: 2px solid #f0f0f0;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      border: 4px solid rgb(218, 217, 217);
+    }
+    &[data-select="true"] {
+      border: 2px solid #006f4c;
+      background-color: #ffffff;
+      &::before {
+        background-color: #006f4c;
+      }
+    }
+    & > p {
+      font-weight: 600;
+      font-size: 16px;
+    }
+    & > span {
+      font-size: 12px;
+      color: gray;
+    }
+  }
+}

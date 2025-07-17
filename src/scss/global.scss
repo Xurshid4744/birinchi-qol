@@ -1,3 +1,12 @@
+:root {
+  --color-red: #ef4444;
+  --color-green: #10b981;
+  --color-blue: #3b82f6;
+  --color-dark-blue: #1e40af;
+  --color-yellow: #facc15;
+  --color-black-soft: #111827;
+}
+
 *,
 *::after,
 *::before {
@@ -20,8 +29,16 @@ body {
   display: flex;
   align-items: center;
 }
+.space-between {
+  justify-content: space-between;
+}
+
 .gap10 {
   gap: 10px;
+}
+
+.disabled {
+  opacity: 0.5 !important;
 }
 
 .container {

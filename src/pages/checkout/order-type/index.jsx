@@ -1,0 +1,29 @@
+import React, { useState } from "react";
+import "./index.scss";
+const OrderType = () => {
+  const [select, setSelect] = useState(1);
+
+  return (
+    <div className="checkout-order-type">
+      <h6 className="checkout-order-type-title">Buyurtma turi</h6>
+      <div
+        className="checkout-order-type-select"
+        data-select={select === 1}
+        onClick={() => setSelect(1)}
+      >
+        <p>🚚 Yetkazib berish</p>
+        <span>Buyurtmangizni o'zimiz yetkazib beramiz.</span>
+      </div>
+      <div
+        className="checkout-order-type-select"
+        data-select={select === 2}
+        onClick={() => setSelect(2)}
+      >
+        <p>🏃‍♂️ Olib ketish</p>
+        <span>O'zingiz olib ketishingiz mumkin.</span>
+      </div>
+    </div>
+  );
+};
+
+export default OrderType;

@@ -1,1 +1,2 @@
-export const MIN_ORDER_AMOUNT = 300000
+export const MIN_ORDER_AMOUNT = 300000;
+export const DELEVERY_AMOUNT = 50000;

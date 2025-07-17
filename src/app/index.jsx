@@ -11,7 +11,7 @@ function App() {
   const fetchProducts = useProductsStore((state) => state.fetchProducts);
 
   useEffect(() => {
-    if (!user) return;
+    // if (!user) return;
     fetchCategories();
     fetchProducts();
   }, [user]);
