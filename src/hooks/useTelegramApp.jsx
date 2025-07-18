@@ -19,8 +19,10 @@ const useTelegramApp = () => {
       const { user, access_token } = response?.data;
 
       if (access_token) {
+        updateUserState("phone", user?.phone);
+        updateUserState("address", user?.address);
+        updateUserState("account", user?.account);
         localStorage.setItem("token", access_token);
-        setUser(user);
       }
     } catch (error) {
       console.error("Telegram login failed", error);
@@ -32,15 +34,15 @@ const useTelegramApp = () => {
     const tgUser = WebApp.initDataUnsafe?.user;
     if (tgUser) {
       loginWithTelegram(String(tgUser?.id));
-      // setUser(tgUser || null);
-      // updateUserState("id", tgUser?.id);
-      // updateUserState("is_bot", tgUser?.is_bot);
-      // updateUserState("first_name", tgUser?.first_name);
-      // updateUserState("last_name", tgUser?.last_name);
-      // updateUserState("username", tgUser?.username);
-      // updateUserState("language_code", tgUser?.language_code);
-      // updateUserState("allows_write_to_pm", tgUser?.allows_write_to_pm);
-      // updateUserState("photo_url", tgUser?.photo_url);
+      setUser(tgUser || null);
+      updateUserState("id", tgUser?.id);
+      updateUserState("is_bot", tgUser?.is_bot);
+      updateUserState("first_name", tgUser?.first_name);
+      updateUserState("last_name", tgUser?.last_name);
+      updateUserState("username", tgUser?.username);
+      updateUserState("language_code", tgUser?.language_code);
+      updateUserState("allows_write_to_pm", tgUser?.allows_write_to_pm);
+      updateUserState("photo_url", tgUser?.photo_url);
     }
   }, []);
 

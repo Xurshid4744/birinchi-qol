@@ -10,6 +10,9 @@ const useUserStore = create((set) => ({
     language_code: null,
     allows_write_to_pm: true,
     photo_url: null,
+    phone: null,
+    address: null,
+    account: "BASIC",
   },
   updateUserState: (key, value) =>
     set((state) => ({
