@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import WebApp from "@twa-dev/sdk";
+import useUserStore from "@/store/user";
 
 const useTelegramApp = () => {
   const [user, setUser] = useState(null);
