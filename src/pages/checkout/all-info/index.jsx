@@ -22,7 +22,7 @@ const AllInfo = ({ orderForm }) => {
       return formatAmount(DELEVERY_AMOUNT + totalSum + debtAmount);
     }
     return formatAmount(totalSum + debtAmount);
-  }, [orderForm?.orderType, getTotalSum, debts]);
+  }, [orderForm?.orderType, getTotalSum, debts?.amount]);
 
   return (
     <div className="checkout-all-info">
