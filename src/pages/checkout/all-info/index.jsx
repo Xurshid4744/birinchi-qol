@@ -13,7 +13,7 @@ const AllInfo = ({ orderForm }) => {
     (user?.last_name && user?.last_name) || ""
   }`.trim();
   const debts = useDebtsStore((s) => s.debts);
-  const settings = useSettingStore((s) => s.settings);
+  const settings = useSettingStore((s) => s.setting);
 
   const totalAmount = useMemo(() => {
     const totalSum = getTotalSum();
