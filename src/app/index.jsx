@@ -11,6 +11,9 @@ function App() {
   const fetchCategories = useCategoryStore((state) => state.fetchCategories);
   const fetchProducts = useProductsStore((state) => state.fetchProducts);
   const fetchDebts = useDebtsStore((state) => state.fetchDebts);
+  return (
+    <h1>{JSON.stringify(user)}</h1>
+  )
 
   useEffect(() => {
     // if (!user) return;
