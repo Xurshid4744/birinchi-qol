@@ -4,7 +4,6 @@ import useUserStore from "@/store/user";
 import { useOrderStore } from "@/store/order";
 import { formatAmount } from "@/utils/amountConvertor";
 import { DELEVERY_AMOUNT } from "@/constants/common";
-import axiosInstance from "@/api";
 import useDebtsStore from "@/store/debts";
 
 const AllInfo = ({ orderForm }) => {
@@ -41,10 +40,9 @@ const AllInfo = ({ orderForm }) => {
         <div class="dot-between">
           <p class="left">💰 Qarzdorlik:</p>
           <p class="right">
-            {JSON.stringify(debts)}
-            {/* {debts
-              ? `${formatAmount(debt?.amount)} UZS ( ${debt?.reason} )`
-              : `${JSON.stringify(debt)}`} */}
+            {debts
+              ? `${formatAmount(debts?.amount)} UZS ( ${debts?.reason} )`
+              : `0 UZS`}
           </p>
         </div>
 
@@ -52,8 +50,12 @@ const AllInfo = ({ orderForm }) => {
           <p class="left">🪙 Jami summa:</p>
           <p class="right">
             {orderForm?.orderType == 1
-              ? `${formatAmount(DELEVERY_AMOUNT + getTotalSum())} UZS`
-              : `${formatAmount(getTotalSum())} UZS`}
+              ? `${formatAmount(
+                  DELEVERY_AMOUNT + getTotalSum() + (debts ? debts?.amout : 0)
+                )} UZS`
+              : `${formatAmount(
+                  getTotalSum() + (debts ? debts?.amout : 0)
+                )} UZS`}
           </p>
         </div>
       </div>
