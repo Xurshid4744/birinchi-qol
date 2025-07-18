@@ -16,13 +16,13 @@ const AllInfo = ({ orderForm }) => {
 
   const totalAmount = useMemo(() => {
     const totalSum = getTotalSum();
-    const debtAmount = Number(debts?.amout) || 0;
+    const debtAmount = Number(debts?.amount) || 0;
 
     if (orderForm?.orderType === 1) {
       return formatAmount(DELEVERY_AMOUNT + totalSum + debtAmount);
     }
     return formatAmount(totalSum + debtAmount);
-  }, [orderForm?.orderType, getTotalSum, debts?.amout]);
+  }, [orderForm?.orderType, getTotalSum, debts]);
 
   return (
     <div className="checkout-all-info">
