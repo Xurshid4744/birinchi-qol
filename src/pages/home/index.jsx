@@ -37,6 +37,9 @@ const HomePage = () => {
         {user?.last_name && <li>Familiya: {user?.last_name}</li>}
         {user?.username && <li>Username: @{user?.username}</li>}
         <li>Tili: {user?.language_code}</li>
+        <li>Tili: {user?.address}</li>
+        <li>Tili: {user?.phone}</li>
+        <li>Tili: {user?.account}</li>
         {user?.photo_url && (
           <li>
             Avatar:{" "}
