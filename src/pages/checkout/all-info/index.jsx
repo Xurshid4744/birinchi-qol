@@ -13,7 +13,10 @@ const AllInfo = ({ orderForm }) => {
     (user?.last_name && user?.last_name) || ""
   }`.trim();
   const debts = useDebtsStore((s) => s.debts);
-
+  const totalAmount =
+    orderForm?.orderType == 1
+      ? formatAmount(DELEVERY_AMOUNT + getTotalSum() + (debts?.amout || 0))
+      : formatAmount(getTotalSum() + (debts?.amout || 0));
   return (
     <div className="checkout-all-info">
       <h6 className="checkout-all-info-title">Umumiy</h6>
@@ -40,23 +43,13 @@ const AllInfo = ({ orderForm }) => {
         <div class="dot-between">
           <p class="left">💰 Qarzdorlik:</p>
           <p class="right">
-            {debts
-              ? `${formatAmount(debts?.amount)} UZS ( ${debts?.reason} )`
-              : `0 UZS`}
+            {debts ? `${formatAmount(debts?.amount)} UZS` : `0 UZS`}
           </p>
         </div>
 
         <div class="dot-between">
           <p class="left">🪙 Jami summa:</p>
-          <p class="right">
-            {orderForm?.orderType == 1
-              ? `${formatAmount(
-                  DELEVERY_AMOUNT + getTotalSum() + (debts ? debts?.amout : 0)
-                )} UZS`
-              : `${formatAmount(
-                  getTotalSum() + (debts ? debts?.amout : 0)
-                )} UZS`}
-          </p>
+          <p class="right">{`${totalAmount} UZS`}</p>
         </div>
       </div>
     </div>
