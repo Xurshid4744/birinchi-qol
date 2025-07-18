@@ -50,7 +50,7 @@ const AllInfo = ({ orderForm }) => {
           <p class="right">
             {debt
               ? `${formatAmount(debt?.amount)} UZS ( ${debt?.reason} )`
-              : `0 UZS`}
+              : `${JSON.stringify(debt)}`}
           </p>
         </div>
 
