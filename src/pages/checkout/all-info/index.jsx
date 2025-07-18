@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import "./index.scss";
 import useUserStore from "@/store/user";
 import { useOrderStore } from "@/store/order";
@@ -13,10 +13,17 @@ const AllInfo = ({ orderForm }) => {
     (user?.last_name && user?.last_name) || ""
   }`.trim();
   const debts = useDebtsStore((s) => s.debts);
-  const totalAmount =
-    orderForm?.orderType == 1
-      ? formatAmount(DELEVERY_AMOUNT + getTotalSum() + (debts?.amout || 0))
-      : formatAmount(getTotalSum() + (debts?.amout || 0));
+
+  const totalAmount = useMemo(() => {
+    const totalSum = getTotalSum();
+    const debtAmount = Number(debts?.amout) || 0;
+
+    if (orderForm?.orderType === 1) {
+      return formatAmount(DELEVERY_AMOUNT + totalSum + debtAmount);
+    }
+    return formatAmount(totalSum + debtAmount);
+  }, [orderForm?.orderType, getTotalSum, debts?.amout]);
+
   return (
     <div className="checkout-all-info">
       <h6 className="checkout-all-info-title">Umumiy</h6>
