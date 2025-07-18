@@ -7,29 +7,34 @@ const OrderPage = lazy(() => import("@/pages/order"));
 const CartPage = lazy(() => import("@/pages/cart"));
 const CheckoutPage = lazy(() => import("@/pages/checkout"));
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
+        {
+          path: "/orders",
+          element: <OrderPage />,
+        },
+        {
+          path: "/cart",
+          element: <CartPage />,
+        },
+        {
+          path: "/checkout",
+          element: <CheckoutPage />,
+        },
+      ],
+    },
+  ],
   {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "/orders",
-        element: <OrderPage />,
-      },
-      {
-        path: "/cart",
-        element: <CartPage />,
-      },
-      {
-        path: "/checkout",
-        element: <CheckoutPage />,
-      },
-    ],
-  },
-]);
+    basename: "/birinchi-qol",
+  }
+);
 
 export default router;
