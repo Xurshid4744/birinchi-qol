@@ -31,7 +31,7 @@ const useTelegramApp = () => {
     WebApp.ready();
     const tgUser = WebApp.initDataUnsafe?.user;
     if (tgUser) {
-      loginWithTelegram(tgUser?.id);
+      loginWithTelegram(String(tgUser?.id));
       // setUser(tgUser || null);
       // updateUserState("id", tgUser?.id);
       // updateUserState("is_bot", tgUser?.is_bot);
