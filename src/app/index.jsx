@@ -13,7 +13,7 @@ function App() {
   const fetchDebts = useDebtsStore((state) => state.fetchDebts);
 
   useEffect(() => {
-    // if (!user) return;
+    if (!user) return;
     fetchCategories();
     fetchProducts();
     fetchDebts(user?.id);
