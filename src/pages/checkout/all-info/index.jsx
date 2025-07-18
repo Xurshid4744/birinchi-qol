@@ -5,6 +5,7 @@ import { useOrderStore } from "@/store/order";
 import { formatAmount } from "@/utils/amountConvertor";
 import { DELEVERY_AMOUNT } from "@/constants/common";
 import axiosInstance from "@/api";
+import useDebtsStore from "@/store/debts";
 
 const AllInfo = ({ orderForm }) => {
   const user = useUserStore((state) => state.user);
@@ -12,16 +13,8 @@ const AllInfo = ({ orderForm }) => {
   const user_name = `${(user?.first_name && user?.first_name) || ""} ${
     (user?.last_name && user?.last_name) || ""
   }`.trim();
-  const [debt, setDebt] = useState(null);
+  const debts = useDebtsStore((s) => s.debts);
 
-  useEffect(() => {
-    const fetchDebt = async () => {
-      const response = await axiosInstance.get(`/debt/${user?.id}`);
-      setDebt(response?.data);
-    };
-
-    fetchDebt();
-  }, []);
   return (
     <div className="checkout-all-info">
       <h6 className="checkout-all-info-title">Umumiy</h6>
@@ -48,9 +41,10 @@ const AllInfo = ({ orderForm }) => {
         <div class="dot-between">
           <p class="left">💰 Qarzdorlik:</p>
           <p class="right">
-            {debt
+            {JSON.stringify(debts)}
+            {/* {debts
               ? `${formatAmount(debt?.amount)} UZS ( ${debt?.reason} )`
-              : `${JSON.stringify(debt)}`}
+              : `${JSON.stringify(debt)}`} */}
           </p>
         </div>
 
