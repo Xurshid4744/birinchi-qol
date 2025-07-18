@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://Xurshid4744.github.io/birinchi-qol",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

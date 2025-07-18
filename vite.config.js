@@ -9,6 +9,7 @@ export default defineConfig({
     },
   },
   plugins: [react()],
+  base: '/birinchi-qol/',
   server: {
     port: 4744,
   },
