@@ -3,23 +3,22 @@ import "./index.scss";
 import useUserStore from "@/store/user";
 import { useOrderStore } from "@/store/order";
 import { formatAmount } from "@/utils/amountConvertor";
-import { DELEVERY_AMOUNT } from "@/constants/common";
 import useDebtsStore from "@/store/debts";
+import useSettingStore from "@/store/settings";
 
 const AllInfo = ({ orderForm }) => {
   const user = useUserStore((state) => state.user);
   const getTotalSum = useOrderStore((s) => s.getTotalSum);
-  const user_name = `${(user?.first_name && user?.first_name) || ""} ${
-    (user?.last_name && user?.last_name) || ""
-  }`.trim();
+  const user_name = `${(user?.first_name && user?.first_name) || ""} ${(user?.last_name && user?.last_name) || ""}`.trim();
   const debts = useDebtsStore((s) => s.debts);
+  const settings = useSettingStore(s => s.settings)
 
   const totalAmount = useMemo(() => {
     const totalSum = getTotalSum();
     const debtAmount = Number(debts?.amount) || 0;
 
     if (orderForm?.orderType === 1) {
-      return formatAmount(DELEVERY_AMOUNT + totalSum + debtAmount);
+      return formatAmount(settings?.delivery_fee + totalSum + debtAmount);
     }
     return formatAmount(totalSum + debtAmount);
   }, [orderForm?.orderType, getTotalSum, debts?.amount]);
@@ -41,7 +40,7 @@ const AllInfo = ({ orderForm }) => {
           <div class="dot-between">
             <p class="left">🚚 Yetkazib berish:</p>
             <p class="right">
-              {orderForm?.orderType == 1 ? formatAmount(DELEVERY_AMOUNT) : 0}{" "}
+              {orderForm?.orderType == 1 ? formatAmount(settings?.delivery_fee) : 0}{" "}
               UZS
             </p>
           </div>
