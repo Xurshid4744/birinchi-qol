@@ -43,7 +43,7 @@ const AllInfo = ({ orderForm }) => {
           <div class="dot-between">
             <p class="left">🚚 Yetkazib berish:</p>
             <p class="right">
-              {orderForm?.orderType == 1 ? formatAmount(deliveryAmount) : 0} UZS
+              {orderForm?.orderType == 1 ? formatAmount(Number(settings?.delivery_fee)) : 0} UZS
             </p>
           </div>
         }
