@@ -14,13 +14,20 @@ function App() {
   const fetchDebts = useDebtsStore((state) => state.fetchDebts);
   const fetchSettings = useSettingStore((state) => state.fetchSettings);
 
-  useEffect(() => {
-    if (!user) return;
+  // useEffect(() => {
+  //   if (!user) return;
+  //   fetchCategories();
+  //   fetchProducts();
+  //   fetchDebts(user?.id);
+  //   fetchSettings();
+  // }, [user]);
+
+   useEffect(() => {
     fetchCategories();
     fetchProducts();
-    fetchDebts(user?.id);
+    fetchDebts(1);
     fetchSettings();
-  }, [user]);
+  }, []);
 
   return <RouterProvider router={router} />;
 }
