@@ -4,7 +4,7 @@ import { useDebounceFn } from "@/hooks/useDebounceFn";
 import { deepEqual } from "@/utils/equal";
 
 export const useProductLogic = (product) => {
-  const { name, unit_price, block_price, tags, id, category_id, img, status} = product;
+  const { name, unit_price, block_price, id, category_id, img, status} = product;
 
   const typeOptions = useMemo(() => {
     const options = [];
@@ -25,7 +25,6 @@ export const useProductLogic = (product) => {
     const savedType = existingOrder?.type;
     return typeOptions.includes(savedType) ? savedType : typeOptions[0];
   });
-  const [tag, setTag] = useState(existingOrder?.tag || tags?.[0] || null);
 
   const addOrder = useOrderStore((s) => s.addOrder);
 
@@ -40,8 +39,8 @@ export const useProductLogic = (product) => {
   const total = useMemo(() => price * count, [price, count]);
 
   const orderData = useMemo(
-    () => ({ name, price, tag, id, total, type, count, block_price, category_id, img, status, tags, unit_price}),
-    [name, price, tag, id, total, type, count, block_price, category_id, img, status, tags, unit_price]
+    () => ({ name, price, id, total, type, count, block_price, category_id, img, status,  unit_price}),
+    [name, price,  id, total, type, count, block_price, category_id, img, status, unit_price]
   );
 
   const prevOrderRef = useRef(null);
@@ -65,7 +64,6 @@ export const useProductLogic = (product) => {
       setType(newType);
     }
   };
-  const handleTag = (newTag) => setTag(newTag);
 
   return {
     count,
@@ -74,8 +72,6 @@ export const useProductLogic = (product) => {
     dic,
     inc,
     toggleType,
-    handleTag,
-    tag,
     price,
     typeOptions,
     isTypeLocked

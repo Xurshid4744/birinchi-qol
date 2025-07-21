@@ -5,28 +5,45 @@ import InfoSection from "./info-section";
 import FooterSection from "./footer-section";
 import "./index.scss";
 
-const ProductCard = ({ product, width = '100%' }) => {
-  const { count, total, type, dic, inc, toggleType, handleTag, tag, price, typeOptions, isTypeLocked} = useProductLogic(product);
+const ProductCard = ({ product }) => {
+  const {
+    count,
+    total,
+    type,
+    dic,
+    inc,
+    toggleType,
+    price,
+    typeOptions,
+    isTypeLocked,
+  } = useProductLogic(product);
 
   return (
-    <article className="product-card" style={{width: `${width}`}}>
-      {!product?.status && <div className="product-status">Omborda mavjud emas !</div>}
-      <div className="flex gap10">
-        <ImageSection img={product.img} name={product.name} />
-        <InfoSection
-          name={product.name}
-          price={price}
-          tags={product.tags}
-          active={type}
-          onToggle={toggleType}
-          handleTag={handleTag}
-          tag={tag}
-          typeOptions={typeOptions}
-          isTypeLocked={isTypeLocked}
-          width={width}
-        />
-      </div>
-      <FooterSection total={total} count={count} inc={inc} dic={dic} />
+    <article className="product-card">
+      <ImageSection
+        img={product.img}
+        name={product.name}
+        handleToggle={toggleType}
+        active={type}
+        typeOptions={typeOptions}
+        isTypeLocked={isTypeLocked}
+      />
+      <InfoSection
+        name={product.name}
+        description={product.description}
+        price={price}
+        sale={product.sale}
+      />
+      <FooterSection
+        total={total}
+        count={count}
+        inc={inc}
+        dic={dic}
+        active={type}
+        onToggle={toggleType}
+        typeOptions={typeOptions}
+        isTypeLocked={isTypeLocked}
+      />
     </article>
   );
 };

@@ -1,0 +1,21 @@
+.advertising-banner {
+  padding-inline: 10px;
+  display: flex;
+//   .rfm-initial-child-container {
+//     .rfm-child:last-child {
+//       background-color: red;
+//     }
+//   }
+  .advertising-banner-item {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    padding-right: 20px;
+    .advertising-banner-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+}

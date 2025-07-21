@@ -1,15 +1,19 @@
 import React from "react";
 import {
+  AdvertisingBanner,
   Categorys,
   GlobalSearch,
   MenuBar,
   SortedCategories,
 } from "@/components";
 import "./index.scss";
+import MegaSale from "./components/mega-sale";
 const HomePage = () => {
   return (
     <div className="container home">
       <GlobalSearch />
+      <AdvertisingBanner />
+      <MegaSale />
       <Categorys />
       <div className="home-sorted-categorys-group">
         <SortedCategories />
